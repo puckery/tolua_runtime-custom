@@ -1,4 +1,5 @@
 luacdir="lua53"
+lua54dir="lua-5.4.4"
 luajitdir="luajit-2.1"
 luapath=""
 lualibname=""
@@ -8,7 +9,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 while :
 do
-    echo "Please choose (1)luajit; (2)lua5.3"
+    echo "Please choose (1)luajit; (2)lua5.3; (3)lua5.4"
     read input
     case $input in
         "1")
@@ -25,6 +26,13 @@ do
             outpath="Plugins53"
             break
         ;;
+        "3")
+            luapath=$lua54dir
+            lualibname="liblua"
+            lualinkpath="android54"
+            outpath="Plugins54"
+            break
+        ;;		
         *)
             echo "Please enter 1 or 2!!"
             continue
@@ -36,7 +44,7 @@ echo "select : $luapath"
 cd $DIR/$luapath/src
 
 # Android/ARM, armeabi-v7a (ARMv7 VFP), Android 4.0+ (ICS)
-NDK=D:/android-ndk-r16b
+NDK=C:/soft/android-ndk-r16b-windows-x86_64/android-ndk-r16b
 NDKABI=21
 NDKTRIPLE=aarch64-linux-android
 NDKVER=$NDK/toolchains/$NDKTRIPLE-4.9

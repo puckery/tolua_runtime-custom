@@ -55,7 +55,7 @@ int  tolua_newuint64(lua_State* L);
 
 extern int toluaflags;
 
-#if LUA_VERSION_NUM == 503
+#if LUA_VERSION_NUM >= 503
 #define lua_getfenv	lua_getuservalue
 #define lua_setfenv	lua_setuservalue
 #define lua_objlen	lua_rawlen

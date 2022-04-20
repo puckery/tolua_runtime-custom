@@ -68,15 +68,15 @@ case $luapath in
     ;;
     $luajitdir)
         cd $SRCDIR
-        make clean
-        ISDKF="-arch armv7 -isysroot $ISDK/SDKs/$ISDKVER -miphoneos-version-min=8.0 -fembed-bitcode"
-        make HOST_CC="gcc -m32" TARGET_FLAGS="$ISDKF" TARGET=armv7 TARGET_SYS=iOS BUILDMODE=static
-        mv "$SRCDIR"/src/$lualibname.a "$DESTDIR"/$lualibname-armv7.a
-
-        make clean
-        ISDKF="-arch armv7s -isysroot $ISDK/SDKs/$ISDKVER -miphoneos-version-min=8.0 -fembed-bitcode"
-        make HOST_CC="gcc -m32" TARGET_FLAGS="$ISDKF" TARGET=armv7s TARGET_SYS=iOS BUILDMODE=static 
-        mv "$SRCDIR"/src/$lualibname.a "$DESTDIR"/$lualibname-armv7s.a
+        # make clean
+        # ISDKF="-arch armv7 -isysroot $ISDK/SDKs/$ISDKVER -miphoneos-version-min=8.0 -fembed-bitcode"
+        # make HOST_CC="gcc -m32" TARGET_FLAGS="$ISDKF" TARGET=armv7 TARGET_SYS=iOS BUILDMODE=static
+        # mv "$SRCDIR"/src/$lualibname.a "$DESTDIR"/$lualibname-armv7.a
+		# 
+        # make clean
+        # ISDKF="-arch armv7s -isysroot $ISDK/SDKs/$ISDKVER -miphoneos-version-min=8.0 -fembed-bitcode"
+        # make HOST_CC="gcc -m32" TARGET_FLAGS="$ISDKF" TARGET=armv7s TARGET_SYS=iOS BUILDMODE=static 
+        # mv "$SRCDIR"/src/$lualibname.a "$DESTDIR"/$lualibname-armv7s.a
 
         make clean
         ISDKF="-arch arm64 -isysroot $ISDK/SDKs/$ISDKVER -miphoneos-version-min=8.0 -fembed-bitcode"

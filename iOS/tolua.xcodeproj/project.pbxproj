@@ -39,6 +39,8 @@
 		841B60C42327F7640065BA83 /* lpvm.c in Sources */ = {isa = PBXBuildFile; fileRef = 841B60C12327F7630065BA83 /* lpvm.c */; };
 		8445EB151D4C9F8A00397F5E /* uint64.c in Sources */ = {isa = PBXBuildFile; fileRef = 8445EB141D4C9F8A00397F5E /* uint64.c */; };
 		847FD89E22B37C3B00A92ACA /* compat.c in Sources */ = {isa = PBXBuildFile; fileRef = 847FD89D22B37C3B00A92ACA /* compat.c */; };
+		FA2FA91B280D4A5D00DC5F3E /* lsqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = FA2FA918280D4A5D00DC5F3E /* lsqlite3.c */; };
+		FA2FA91C280D4A5D00DC5F3E /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = FA2FA919280D4A5D00DC5F3E /* sqlite3.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -113,6 +115,9 @@
 		8445EB141D4C9F8A00397F5E /* uint64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = uint64.c; path = ../../uint64.c; sourceTree = "<group>"; };
 		847FD89C22B37C3B00A92ACA /* compat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = compat.h; sourceTree = "<group>"; };
 		847FD89D22B37C3B00A92ACA /* compat.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = compat.c; sourceTree = "<group>"; };
+		FA2FA918280D4A5D00DC5F3E /* lsqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lsqlite3.c; path = ../../../lsqlite3/lsqlite3.c; sourceTree = "<group>"; };
+		FA2FA919280D4A5D00DC5F3E /* sqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sqlite3.c; path = ../../../lsqlite3/sqlite3.c; sourceTree = "<group>"; };
+		FA2FA91A280D4A5D00DC5F3E /* sqlite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sqlite3.h; path = ../../../lsqlite3/sqlite3.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +151,7 @@
 		8400929D1CCF43D600F89A56 /* tolua */ = {
 			isa = PBXGroup;
 			children = (
+				FA2FA917280D4A4B00DC5F3E /* lsqlite3 */,
 				8419C9FF232670BC00283BB0 /* lpeg */,
 				840092BD1CCF45A800F89A56 /* luasocket */,
 				840092B31CCF455100F89A56 /* cjson */,
@@ -234,6 +240,16 @@
 			path = ../../lpeg;
 			sourceTree = "<group>";
 		};
+		FA2FA917280D4A4B00DC5F3E /* lsqlite3 */ = {
+			isa = PBXGroup;
+			children = (
+				FA2FA918280D4A5D00DC5F3E /* lsqlite3.c */,
+				FA2FA919280D4A5D00DC5F3E /* sqlite3.c */,
+				FA2FA91A280D4A5D00DC5F3E /* sqlite3.h */,
+			);
+			path = lsqlite3;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -274,6 +290,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 840092921CCF43D600F89A56;
@@ -298,6 +315,7 @@
 				840092EE1CCF45A800F89A56 /* udp.c in Sources */,
 				840092E41CCF45A800F89A56 /* except.c in Sources */,
 				840092BB1CCF455100F89A56 /* lua_cjson.c in Sources */,
+				FA2FA91B280D4A5D00DC5F3E /* lsqlite3.c in Sources */,
 				840092B01CCF452100F89A56 /* struct.c in Sources */,
 				840092B21CCF452700F89A56 /* tolua.c in Sources */,
 				841B60C22327F7640065BA83 /* lpprint.c in Sources */,
@@ -321,6 +339,7 @@
 				840092E91CCF45A800F89A56 /* options.c in Sources */,
 				840092E51CCF45A800F89A56 /* inet.c in Sources */,
 				840092EA1CCF45A800F89A56 /* select.c in Sources */,
+				FA2FA91C280D4A5D00DC5F3E /* sqlite3.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +369,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "armv7s armv7";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -394,6 +414,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "armv7s armv7";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -413,6 +434,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				EXCLUDED_ARCHS = "armv7s armv7";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				HEADER_SEARCH_PATHS = "../luajit-2.1/src";
 				LIBRARY_SEARCH_PATHS = (
@@ -430,6 +452,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				EXCLUDED_ARCHS = "armv7s armv7";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				HEADER_SEARCH_PATHS = "../luajit-2.1/src";
 				LIBRARY_SEARCH_PATHS = (

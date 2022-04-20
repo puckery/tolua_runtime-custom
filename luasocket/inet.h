@@ -22,9 +22,9 @@
 #define LUASOCKET_INET_ATON
 #endif
 
-#ifdef __MINGW32__
-#define LUASOCKET_INET_PTON
-#endif
+//#ifdef __MINGW32__
+//#define LUASOCKET_INET_PTON
+//#endif
 
 #ifndef _WIN32
 #pragma GCC visibility push(hidden)

@@ -48,6 +48,16 @@ static int gettag = 0;
 static int settag = 0;
 static int vptr = 1;
 
+#if LUA_VERSION_NUM >= 503
+/*
+@@ LUA_QL describes how error messages quote program elements.
+** Lua does not use these macros anymore; they are here for
+** compatibility only.
+*/
+#define LUA_QL(x)   "'" x "'"
+#define LUA_QS      LUA_QL("%s")
+#endif
+
 #if LUA_VERSION_NUM == 501
 #define lua_pushglobaltable(L)  \
     ((void)lua_pushvalue(L, LUA_GLOBALSINDEX))
@@ -2798,7 +2808,7 @@ LUALIB_API int luaL_getversion()
     return LUA_VERSION_NUM;
 }
 
-#if LUA_VERSION_NUM == 503
+#if LUA_VERSION_NUM >= 503
 
 #if !defined(LUA_COMPAT_MODULE)
 // LUALIB_API void luaL_register(lua_State*L, const char*libname, const luaL_Reg* l)
